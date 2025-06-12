@@ -1,0 +1,63 @@
+@use 'variables' as *;
+
+/**************************
+    * BASE GRID
+**************************/
+.container {
+    width: 1400px;
+    max-width: 90%;
+    margin: auto;
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        .grid-item {
+            transition: all .3s ease;
+            box-sizing: border-box;
+            &.full {
+                width: 100%;
+            }
+            &.three-quarter {
+                width: 75%;
+                @media(max-width:$tablet) {
+                    width: 50%;
+                }
+                @media(max-width:$mobile) {
+                    width: 100%;
+                }
+            }
+            &.two-thirds {
+                width: 66.6666%;
+                @media(max-width:$tablet) {
+                    width: 50%;
+                }
+                @media(max-width:$mobile) {
+                    width: 100%;
+                }
+            }
+            &.half {
+                width: 50%;
+                @media(max-width:$mobile) {
+                    width: 100%;
+                }
+            }
+            &.third {
+                width: 33.3333%;
+                @media(max-width:$tablet) {
+                    width: 50%;
+                }
+                @media(max-width:$mobile) {
+                    width: 100%;
+                }
+            }
+            &.quarter {
+                width: 25%;
+                @media(max-width:$tablet) {
+                    width: 50%;
+                }
+                @media(max-width:$mobile) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

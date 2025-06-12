@@ -1,0 +1,36 @@
+{
+  "name": "fjorge-wp-starter-theme",
+  "version": "3.0.0",
+  "description": "fjorge starter theme for WordPress using Gulp to compile SCSS and JS along with other tasks.",
+  "main": "Gulpfile.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "registerBlock": "rsync -rv ./template-parts/blocks/_register/$1 project-qa@l05:~/fjorge-wp-starter.l05.project-qa.com/wp-content/themes/fjorge-wp-starter/template-parts/blocks/_register/",
+    "which": "echo node $npm_package_engines_node; echo npm $npm_package_engines_npm;"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.8",
+    "cssnano": "^5.1.13",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-notify": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.62.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "defaults"
+  ],
+  "author": "fjorge",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-cli": "^3.0.0"
+  }
+}

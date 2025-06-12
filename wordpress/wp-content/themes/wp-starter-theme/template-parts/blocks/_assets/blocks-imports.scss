@@ -1,0 +1,8 @@
+/**
+ * Block Sass Imports
+ * - This file is imported into the global scss and compiled together
+ */
+
+// Blocks
+@use '_blocks-global';
+@use '../example/example';

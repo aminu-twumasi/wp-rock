@@ -1,0 +1,21 @@
+// libraries and dependencies
+@use 'vendor/__vendor-overwrites'; // theme custom file - edit as needed
+@use 'vendor/_normalize';
+@use 'vendor/fontawesome/fontawesome';
+@use 'vendor/fontawesome/brands';
+@use 'vendor/fontawesome/light';
+@use 'vendor/fontawesome/regular';
+@use 'vendor/fontawesome/solid';
+
+// GLOBAL
+@use 'base';
+
+// GLOBAL
+@use 'global';
+
+// LAYOUTS
+@use 'layouts';
+
+// ALL BLOCKS
+// - Individual blocks imported into this file
+@use '../../../template-parts/blocks';

@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: wordpress-out
+    destination: /var/www/vhosts/{{ PLACEHOLDER }}/httpdocs
+permissions:
+  - object: /
+    owner: {{ PLACEHOLDER }}
+    group: psacln
+    mode: 644
+    type:
+      - file
+  - object: /
+    owner: {{ PLACEHOLDER }}
+    group: psacln
+    mode: 755
+    type:
+      - directory
+hooks:
+  AfterInstall:
+    - location: scripts/post_deploy.sh
+file_exists_behavior: OVERWRITE

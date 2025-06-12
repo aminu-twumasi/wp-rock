@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: wordpress-out
+    destination: /var/www/vhosts/l06.project-qa.com/{{ PLACEHOLDER }}.l06.project-qa.com
+permissions:
+  - object: /
+    owner: project-qa
+    group: psacln
+    mode: 644
+    type:
+      - file
+  - object: /
+    owner: project-qa
+    group: psacln
+    mode: 755
+    type:
+      - directory
+hooks:
+  AfterInstall:
+    - location: scripts/post_deploy.sh
+file_exists_behavior: OVERWRITE

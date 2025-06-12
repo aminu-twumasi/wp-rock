@@ -1,0 +1,19 @@
+{
+	"name": "acf/example",
+	"title": "Example",
+	"description": "Description of what to use this block for",
+	"category": "theme-blocks",
+	"icon": "editor-help--https://developer.wordpress.org/resource/dashicons",
+	"keywords": ["grid", "formatting", "links", "wysiwyg", "body", "media", "dynamic", "static", "[synonyms for block name]", "[other helpful search terms]"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "block.php"
+	},
+	"supports": {
+		"customClassName": true,
+		"anchor": true,
+		"align": false,
+		"alignText": false,
+		"alignContent": false
+	}
+}

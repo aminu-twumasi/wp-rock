@@ -1,0 +1,55 @@
+version: 0.2
+env:
+  variables:
+    WORDPRESS_MAJOR_VERSION: '6.8' # don't specify a patch version
+    THEME_NAME: 'wp-starter-theme' # the name of the wordpress theme directory
+
+phases:
+
+  install:
+    runtime-versions:
+      nodejs: 20
+      php: 8.3
+
+  pre_build:
+    commands:
+
+      # check syntax in php files; fail early if there's invalid syntax
+      - find . -type f -name '*.php' -exec php -l {} + > /dev/null
+      
+      # select appropriate appspec.yml file for the deployment environment
+      - cp deployment/$deployment_environment/appspec.yml appspec.yml
+
+      # check that selected appspec is valid yaml
+      - npx yaml-validator appspec.yml
+
+  build:
+    commands:
+
+      # determine appropriate WP minor version to install and install it
+      - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+      - WORDPRESS_MINOR_VERSION=$(curl -s "https://api.wordpress.org/core/version-check/1.7/?version=$WORDPRESS_MAJOR_VERSION" | jq --arg major_version $WORDPRESS_MAJOR_VERSION -r '[ .offers | .[] | select(.version | startswith($major_version)) ] | first | .version')
+      - php wp-cli.phar core download --skip-content --path=wordpress-out --allow-root --version=$WORDPRESS_MINOR_VERSION
+      
+      # run gulp build workflow
+      - cp -r wordpress/. wordpress-out
+      - cd wordpress-out/wp-content/themes/$THEME_NAME
+      - npm install
+      - npx gulp build
+
+      # cleanup
+      - rm -rf node_modules
+      - rm -rf assets/src
+      - rm -rf .gitignore
+      - rm -rf CHANGELOG.md
+      - rm -rf Gulpfile.js
+      - rm -rf package.json
+      - rm -rf package-lock.json
+      - rm -rf phpDocumentor.phar
+      - rm -rf README.md
+
+artifacts:
+  files:
+    - wordpress-out/**/*
+    - scripts/**/*
+    - appspec.yml

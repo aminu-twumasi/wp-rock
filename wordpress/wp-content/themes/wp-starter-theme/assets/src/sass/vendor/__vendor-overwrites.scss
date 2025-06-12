@@ -1,0 +1,15 @@
+// This is the very first SCSS component. Use this to set variables needed in ./library/* sources
+
+/********************************
+	FONT AWESOME
+********************************/
+// If you change a default value, please remove the "!default" string from the variable
+$fa-font-path: '../../fonts/fontawesome-pro-5.9.0-web/webfonts';
+$fa-font-size-base: 16px !default;
+$fa-font-display: auto !default;
+$fa-css-prefix: fa !default;
+$fa-version: '5.9.0' !default;
+$fa-border-color: #eee !default;
+$fa-inverse: #fff !default;
+$fa-li-width: 2em !default;
+$fa-fw-width: calc(20em / 16);

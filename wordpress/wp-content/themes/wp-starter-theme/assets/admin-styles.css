@@ -1,0 +1,49 @@
+/*************************************************************
+   * WP ADMIN
+*************************************************************/
+/* DEFINE CSS3 VARS */
+:root {
+    --admin_sidebarWidth: 27%;
+    --admin_sidebarWidth_min: 400px;
+}
+
+/***** GLOBAL ADMIN *****/
+.wp-admin ul{
+    list-style:none;
+    padding:0;
+}
+
+.wp-block-freeform{
+    padding:10px 20px;
+}
+
+
+/***** TABLET AND UP *****/
+@media screen and (min-width: 782px){
+
+    /* GUTENBERG EDITOR */
+    .wp-admin .edit-post-layout .interface-interface-skeleton__body{
+        padding-bottom:30px;
+    }
+    .wp-admin .edit-post-layout .wp-block{
+        max-width: 100%;
+    }
+    .wp-admin .edit-post-layout .block-editor-block-list__layout .wp-block{
+        border: solid 1px #ccc;
+    }
+    .wp-admin .edit-post-layout .wp-block + .wp-block{
+        margin-top:10px;
+    }
+
+    /* GUTENBERG SIDEBAR */
+    .wp-admin .edit-post-layout.is-sidebar-opened .block-editor-editor-skeleton__sidebar,
+    .wp-admin .edit-post-layout.is-sidebar-opened .interface-interface-skeleton__sidebar{
+        width: var(--admin_sidebarWidth);
+        min-width: var(--admin_sidebarWidth_min);
+    }
+    .wp-admin .edit-post-layout.is-sidebar-opened .edit-post-sidebar{
+        width:100%;
+    }
+
+}/* end: tablet^ styles */
+

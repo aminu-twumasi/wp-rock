@@ -1,0 +1,112 @@
+@use '../../../assets/src/sass/base' as *;
+
+/******************************
+    BLOCK: Global
+******************************/
+
+/***** BLOCK STYLES *****/
+
+
+/***** BLOCK FORMATTING *****/
+body * {
+	// Horizontal Align
+	&[data-align-x='left'] {
+		justify-content: flex-start;
+		text-align: left;
+	}
+	&[data-align-x='center'] {
+		justify-content: center;
+		text-align: center;
+
+		.btn__container {
+			justify-content: center;
+			text-align: center;
+		}
+	}
+	&[data-align-x='right'] {
+		justify-content: flex-end;
+		text-align: right;
+
+		.btn__container {
+			justify-content: flex-end;
+			text-align: right;
+		}
+	}
+
+	// Vertical Align
+	&[data-align-y='top'] {
+		align-items: flex-start;
+	}
+	&[data-align-y='center'] {
+		align-items: center;
+	}
+	&[data-align-y='bottom'] {
+		align-items: flex-end;
+	}
+}
+
+/******************************
+    ADMIN
+******************************/
+.admin-only {
+	display: none;
+}
+.acf-tooltip {
+	ul {
+		li {
+			a {
+				font-size: 16px;
+				padding: 5px 15px;
+			}
+		}
+	}
+}
+
+body .interface-complementary-area__fill,
+body .editor-sidebar {
+	width: 400px !important;
+}
+
+.acf-block-preview {
+	.editor-styles-wrapper {
+		.wp-block-post-title {
+			font-size: 48px;
+		}
+	}
+}
+
+.block-editor__container {
+	.acf-block-panel .acf-fields > .acf-field > .acf-label label {
+
+	}
+	.admin--block-head {
+		padding: 15px;
+	}
+
+	.admin-block-title {
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid #e1e1e1;
+		color: #999;
+		font-size: 21px;
+		font-family: sans-serif;
+		margin-top: 0;
+		margin-bottom: 5px;
+		padding: 0 0 3px;
+		span {
+			display: block;
+			font-size: 18px;
+			&.dashicons {
+				margin-right: 5px;
+			}
+		}
+	}
+	.admin-block-desc {
+		color: #999;
+		font-size: 14px;
+		font-family: sans-serif;
+		margin-top: 0;
+		margin-bottom: 5px;
+		padding: 0 0 3px;
+	}
+}

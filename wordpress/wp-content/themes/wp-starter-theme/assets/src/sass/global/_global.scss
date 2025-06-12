@@ -1,0 +1,22 @@
+@use '../base' as *;
+
+/*************************************************************
+   * GENERAL
+*************************************************************/
+
+// fonts and headings are set in "/base/_fonts.scss"
+
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--app-height: 100%;
+	--start: auto;
+	--span: 5;
+}
+
+.skip-link {
+	position: absolute;
+	top: -50px;
+}
