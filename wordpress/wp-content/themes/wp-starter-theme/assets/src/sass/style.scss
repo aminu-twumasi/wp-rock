@@ -19,3 +19,237 @@
 // ALL BLOCKS
 // - Individual blocks imported into this file
 @use '../../../template-parts/blocks';
+
+// Zoo-inspired color palette
+$primary: #3a5d23; // deep green
+$accent: #f4a259;  // warm orange
+$background: #f9f7f3;
+$text: #222;
+
+// Reset some basics
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $background;
+  color: $text;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.site-content {
+  flex: 1 0 auto;
+  margin-top: 130px; // Adjust to match header height
+}
+footer {
+  flex-shrink: 0;
+  background: $primary;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+// Header styles
+header {
+  background: $primary;
+  color: #fff;
+  padding: 1.2rem 0;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+}
+
+// Navigation menu
+nav.main-menu {
+  background: $accent;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.zoo-header {
+  background: #3a5d23;
+  color: #fff;
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    min-height: 90px;
+  }
+
+  &__logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+  }
+
+  &__title {
+    flex: 1;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+
+  &__search-btn,
+  &__burger {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: color 0.2s;
+    z-index: 102;
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+
+  &__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #3a5d23;
+    width: 220px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-radius: 0 0 8px 8px;
+    padding: 1rem 0;
+    z-index: 101;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      text-align: right;
+      margin: 0;
+
+      a {
+        display: block;
+        padding: 0.75rem 2rem;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #f4a259;
+          color: #3a5d23;
+        }
+      }
+    }
+  }
+
+  &__search-popout {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 60px;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    z-index: 101;
+    min-width: 220px;
+
+    form {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      input[type="search"] {
+        flex: 1;
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        transition: border 0.2s;
+        &:focus {
+          border: 1.5px solid #3a5d23;
+        }
+      }
+      input[type="submit"] {
+        background: #3a5d23;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.2s;
+        &:hover {
+          background: #f4a259;
+          color: #3a5d23;
+        }
+      }
+    }
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.centered-content img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}

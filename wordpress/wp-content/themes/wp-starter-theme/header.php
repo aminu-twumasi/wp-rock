@@ -50,9 +50,42 @@ if (strpos($domain, $environment_map['local']) !== false) {
 <body <?php body_class(); ?> data-environment="<?php echo $environment; ?>">
 
 	<!-- HEADER START -->
-	<header role="banner" aria-label="Global header navigation">
-		<nav><?php wp_nav_menu(['theme_location' => 'main-menu']); ?></nav>
-		<?php echo get_search_form(); ?>
+	<header class="zoo-header">
+		<div class="zoo-header__container">
+			<!-- Site Icon/Logo (left) -->
+			<a href="<?php echo home_url(); ?>" class="zoo-header__logo" aria-label="Homepage">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/logo.jpg" alt="Greenwood Zoo Logo" />
+			</a>
+
+			<!-- Zoo Name (center) -->
+			<div class="zoo-header__title">Greenwood Zoo</div>
+
+			<!-- Search Icon (right, before burger) -->
+			<button class="zoo-header__search-btn" aria-label="Search">
+				<span class="icon-search">&#128269;</span>
+			</button>
+
+			<!-- Burger Menu Icon (right) -->
+			<button class="zoo-header__burger" aria-label="Open menu" aria-expanded="false">
+				<span class="icon-burger">&#9776;</span>
+			</button>
+		</div>
+
+		<!-- Dropdown Navigation Menu (hidden by default) -->
+		<nav class="zoo-header__nav" aria-label="Main menu">
+			<?php
+				wp_nav_menu([
+					'theme_location' => 'main-menu',
+					'menu_class' => 'zoo-header__menu',
+					'container' => false
+				]);
+			?>
+		</nav>
+
+		<!-- Pop-out Search Field (hidden by default) -->
+		<div class="zoo-header__search-popout">
+			<?php get_search_form(); ?>
+		</div>
 	</header>
 	<!-- END HEADER -->
 

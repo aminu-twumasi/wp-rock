@@ -367,3 +367,21 @@ function my_pre_get_posts($query) {
 }
 
 add_action('pre_get_posts', 'my_pre_get_posts');
+
+function greenwoodzoo_enqueue_assets() {
+    // Enqueue main stylesheet (if not already done)
+    wp_enqueue_style(
+        'greenwoodzoo-style',
+        get_stylesheet_uri()
+    );
+
+    // Enqueue your custom JS (adjust path as needed)
+    wp_enqueue_script(
+        'greenwoodzoo-header',
+        get_template_directory_uri() . '/assets/dist/header.js', // Path to your compiled JS
+        array(), // Dependencies (e.g., array('jquery'))
+        null,    // Version (null = no version)
+        true     // Load in footer (recommended for JS)
+    );
+}
+add_action('wp_enqueue_scripts', 'greenwoodzoo_enqueue_assets');

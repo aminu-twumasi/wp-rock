@@ -7,13 +7,15 @@
 get_header();
 global $templateData;
 ?>
-<div <?php post_class('page__wrapper'); ?>>
-	<?php if (have_posts()) : ?>
-		<?php while (have_posts()) : the_post(); ?>
+<div class="site-content">
+	<div <?php post_class('page__wrapper'); ?>>
+		<?php if (have_posts()) : ?>
+			<?php while (have_posts()) : the_post(); ?>
 
-			<?php the_content(); ?>
+				<?php the_content(); ?>
 
-		<?php endwhile; ?>
-	<?php endif; ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	</div>
 </div>
 <?php get_footer();
